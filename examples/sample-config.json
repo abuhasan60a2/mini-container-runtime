@@ -1,0 +1,35 @@
+{
+    "description": "Sample minibox container configuration",
+    "examples": [
+        {
+            "name": "basic-alpine",
+            "description": "Run a simple Alpine Linux shell",
+            "command": "sudo ./minibox run alpine-minirootfs-3.19.0-x86_64.tar.gz /bin/sh"
+        },
+        {
+            "name": "echo-hello",
+            "description": "Run a single command and exit",
+            "command": "sudo ./minibox run alpine-minirootfs-3.19.0-x86_64.tar.gz /bin/echo 'Hello from minibox'"
+        },
+        {
+            "name": "limited-resources",
+            "description": "Run with 128MB memory and 25% CPU limit",
+            "command": "sudo ./minibox run --memory 128m --cpu 25 alpine-minirootfs-3.19.0-x86_64.tar.gz /bin/sh"
+        },
+        {
+            "name": "detached-with-ports",
+            "description": "Run a web server in background with port forwarding",
+            "command": "sudo ./minibox run -d -p 8080:80 --name web alpine-minirootfs-3.19.0-x86_64.tar.gz /bin/sh -c 'echo hello > /tmp/index.html && httpd -f -p 80 -h /tmp'"
+        },
+        {
+            "name": "with-volumes",
+            "description": "Run with a host directory mounted",
+            "command": "sudo ./minibox run -v /tmp/shared:/data alpine-minirootfs-3.19.0-x86_64.tar.gz /bin/ls /data"
+        },
+        {
+            "name": "with-env",
+            "description": "Run with environment variables",
+            "command": "sudo ./minibox run -e MY_VAR=hello -e DEBUG=1 alpine-minirootfs-3.19.0-x86_64.tar.gz /bin/env"
+        }
+    ]
+}

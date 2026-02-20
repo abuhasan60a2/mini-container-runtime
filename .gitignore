@@ -1,0 +1,24 @@
+# Build artifacts
+*.o
+minibox
+src/*.o
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Debug files
+*.dSYM/
+core
+
+# Test artifacts
+*.tar.gz
+rootfs/
+
+# Runtime state (created by minibox)
+/var/run/minibox/
+/var/log/minibox/
+/var/lib/minibox/
